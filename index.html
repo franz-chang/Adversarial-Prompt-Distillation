@@ -19,25 +19,14 @@
   <meta property="og:description" content="We introduce Adversarial Prompt Distillation (APD), a novel framework that transfers jailbreak capabilities from large language models (LLMs) to small language models (SLMs) using masked language modeling, KL divergence, reinforcement learning, and dynamic temperature control. APD achieves high attack success rates with significantly reduced time and resource demands.">
   <meta property="og:url" content="https://franz-chang.github.io/Adversarial-Prompt-Distillation">
   <meta property="og:image" content="https://franz-chang.github.io/Adversarial-Prompt-Distillation/static/images/apd_overview.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Adversarial Prompt Distillation Framework Overview">
-  <meta property="article:published_time" content="2025-11-10T00:00:00.000Z">
-  <meta property="article:author" content="Xiang Li">
-  <meta property="article:section" content="AI Security">
-  <meta property="article:tag" content="jailbreak">
-  <meta property="article:tag" content="knowledge distillation">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@xjtlu_ai">
-  <meta name="twitter:creator" content="@lxgem">
   <meta name="twitter:title" content="Efficient and Stealthy Jailbreak Attacks via Adversarial Prompt Distillation from LLMs to SLMs">
   <meta name="twitter:description" content="We introduce Adversarial Prompt Distillation (APD), a novel framework that transfers jailbreak capabilities from large language models (LLMs) to small language models (SLMs) using masked language modeling, KL divergence, reinforcement learning, and dynamic temperature control. APD achieves high attack success rates with significantly reduced time and resource demands.">
   <meta name="twitter:image" content="https://franz-chang.github.io/Adversarial-Prompt-Distillation/static/images/apd_overview.png">
-  <meta name="twitter:image:alt" content="Adversarial Prompt Distillation Framework Overview">
 
-  <!-- Academic/Research Specific -->
+  <!-- Academic Specific -->
   <meta name="citation_title" content="Efficient and Stealthy Jailbreak Attacks via Adversarial Prompt Distillation from LLMs to SLMs">
   <meta name="citation_author" content="Li, Xiang">
   <meta name="citation_author" content="Zhang, Chong">
@@ -48,87 +37,16 @@
   <meta name="citation_publication_date" content="2025">
   <meta name="citation_pdf_url" content="https://franz-chang.github.io/Adversarial-Prompt-Distillation/static/pdfs/Efficient_and_Stealthy_Jailbreak_Attacks_via_Adversarial_Prompt_Distillation_from_LLMs_to_SLMs.pdf">
   
-  <!-- Additional SEO -->
-  <meta name="theme-color" content="#2563eb">
-  <meta name="msapplication-TileColor" content="#2563eb">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  
-  <!-- Preconnect for performance -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="preconnect" href="https://ajax.googleapis.com">
-  <link rel="preconnect" href="https://documentcloud.adobe.com">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
-
   <title>Efficient and Stealthy Jailbreak Attacks via Adversarial Prompt Distillation from LLMs to SLMs</title>
   
-  <!-- Favicon and App Icons -->
   <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link rel="apple-touch-icon" href="static/images/favicon.ico">
-  
-  <!-- Critical CSS -->
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/index.css">
-  
-  <!-- Non-critical CSS -->
-  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  
-  <noscript>
-    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
-    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  </noscript>
-  
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  
-  <!-- Defer non-critical JavaScript -->
-  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
-  <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script defer src="static/js/bulma-carousel.min.js"></script>
-  <script defer src="static/js/bulma-slider.min.js"></script>
-  <script defer src="static/js/index.js"></script>
-  
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ScholarlyArticle",
-    "headline": "Efficient and Stealthy Jailbreak Attacks via Adversarial Prompt Distillation from LLMs to SLMs",
-    "description": "We introduce Adversarial Prompt Distillation (APD), a novel framework that transfers jailbreak capabilities from large language models (LLMs) to small language models (SLMs) using masked language modeling, KL divergence, reinforcement learning, and dynamic temperature control. APD achieves high attack success rates with significantly reduced time and resource demands.",
-    "author": [
-      { "@type": "Person", "name": "Xiang Li", "affiliation": { "@type": "Organization", "name": "Xi’an Jiaotong-Liverpool University" } },
-      { "@type": "Person", "name": "Chong Zhang", "affiliation": { "@type": "Organization", "name": "Xi’an Jiaotong-Liverpool University" } },
-      { "@type": "Person", "name": "Jia Wang", "affiliation": { "@type": "Organization", "name": "Xi’an Jiaotong-Liverpool University" } },
-      { "@type": "Person", "name": "Fangyu Wu", "affiliation": { "@type": "Organization", "name": "Xi’an Jiaotong-Liverpool University" } },
-      { "@type": "Person", "name": "Yushi Li", "affiliation": { "@type": "Organization", "name": "Xi’an Jiaotong-Liverpool University" } },
-      { "@type": "Person", "name": "Xiaobo Jin", "affiliation": { "@type": "Organization", "name": "Xi’an Jiaotong-Liverpool University" } }
-    ],
-    "datePublished": "2025-11-10",
-    "publisher": { "@type": "Organization", "name": "Preprint" },
-    "url": "https://franz-chang.github.io/Adversarial-Prompt-Distillation",
-    "image": "https://franz-chang.github.io/Adversarial-Prompt-Distillation/static/images/apd_overview.png",
-    "keywords": ["jailbreak attacks", "adversarial prompt distillation", "LLMs", "SLMs", "knowledge distillation", "reinforcement learning"],
-    "abstract": "As the scale and complexity of jailbreaking attacks on large language models (LLMs) continue to escalate, their efficiency and practical applicability are constrained, posing a profound challenge to LLM security. Jailbreaking techniques have advanced from manual prompt engineering to automated methodologies. Recent advances have automated jailbreaking approaches that harness LLMs to generate jailbreak instructions and adversarial examples, delivering encouraging results. Nevertheless, these methods universally incorporate an LLM generation phase, which, due to the intricacies of deploying and reasoning with LLMs, impedes their effective implementation and broader adoption. To mitigate this issue, we introduce Adversarial Prompt Distillation, an innovative framework that integrates masked language modeling, reinforcement learning, and dynamic temperature control to distill LLM jailbreaking prowess into smaller language models (SLMs). This methodology enables efficient, robust jailbreak attacks while maintaining high success rates and accommodating a broader range of application contexts. Empirical evaluations affirm the approach’s superiority in attack efficacy, resource optimization, and cross-model versatility.",
-    "isAccessibleForFree": true,
-    "license": "https://creativecommons.org/licenses/by/4.0/"
-  }
-  </script>
 </head>
 <body>
 
-  <!-- Scroll to Top Button -->
-  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
-    <i class="fas fa-chevron-up"></i>
-  </button>
-
-  <main id="main-content">
+  <!-- Hero -->
   <section class="hero">
     <div class="hero-body">
       <div class="container is-max-desktop">
@@ -136,53 +54,35 @@
           <div class="column has-text-centered">
             <h1 class="title is-1 publication-title">Efficient and Stealthy Jailbreak Attacks via Adversarial Prompt Distillation from LLMs to SLMs</h1>
             <div class="is-size-5 publication-authors">
-              <span class="author-block">
-                <a href="https://github.com/lxgem" target="_blank">Xiang Li</a><sup>*</sup>,</span>
-              <span class="author-block">
-                <a href="#" target="_blank">Chong Zhang</a><sup>*</sup>,</span>
-              <span class="author-block">
-                <a href="#" target="_blank">Jia Wang</a>,</span>
-              <span class="author-block">
-                <a href="#" target="_blank">Fangyu Wu</a>,</span>
-              <span class="author-block">
-                <a href="#" target="_blank">Yushi Li</a>,</span>
-              <span class="author-block">
-                <a href="mailto:xiaobo.jin@xjtlu.edu.cn" target="_blank">Xiaobo Jin</a><sup>†</sup>
-              </span>
+              <span class="author-block"><a href="https://github.com/lxgem" target="_blank">Xiang Li</a><sup>*</sup>,</span>
+              <span class="author-block">Chong Zhang<sup>*</sup>,</span>
+              <span class="author-block">Jia Wang,</span>
+              <span class="author-block">Fangyu Wu,</span>
+              <span class="author-block">Yushi Li,</span>
+              <span class="author-block"><a href="mailto:xiaobo.jin@xjtlu.edu.cn">Xiaobo Jin</a><sup>†</sup></span>
             </div>
-
             <div class="is-size-5 publication-authors">
-              <span class="author-block">
-                <sup>1</sup>Xi’an Jiaotong-Liverpool University,<br>
-                <sup>2</sup>The Chinese University of Hong Kong,<br>
-                <sup>3</sup>University of Liverpool
-              </span>
+              <span class="author-block"><sup>1</sup>Xi’an Jiaotong-Liverpool University,<br>
+              <sup>2</sup>The Chinese University of Hong Kong,<br>
+              <sup>3</sup>University of Liverpool</span>
               <span class="eql-cntrb"><small><br><sup>*</sup>Equal Contribution <sup>†</sup>Corresponding Author</small></span>
             </div>
 
-            <div class="column has-text-centered">
+            <div class="column has-text-centered mt-5">
               <div class="publication-links">
                 <span class="link-block">
-                  <a href="static/pdfs/Efficient_and_Stealthy_Jailbreak_Attacks_via_Adversarial_Prompt_Distillation_from_LLMs_to_SLMs.pdf" target="_blank"
-                     class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
-                    <span>Paper</span>
+                  <a href="static/pdfs/Efficient_and_Stealthy_Jailbreak_Attacks_via_Adversarial_Prompt_Distillation_from_LLMs_to_SLMs.pdf" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper</span>
                   </a>
                 </span>
-
                 <span class="link-block">
-                  <a href="https://github.com/lxgem/Efficient_and_Stealthy_Jailbreak_Attacks_via_Adversarial_Prompt/tree/main" target="_blank"
-                     class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon"><i class="fab fa-github"></i></span>
-                    <span>Code</span>
+                  <a href="https://github.com/lxgem/Efficient_and_Stealthy_Jailbreak_Attacks_via_Adversarial_Prompt/tree/main" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fab fa-github"></i></span><span>Code</span>
                   </a>
                 </span>
-
                 <span class="link-block">
-                  <a href="https://franz-chang.github.io/Adversarial-Prompt-Distillation" target="_blank"
-                     class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon"><i class="fas fa-globe"></i></span>
-                    <span>Project Page</span>
+                  <a href="https://franz-chang.github.io/Adversarial-Prompt-Distillation" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fas fa-globe"></i></span><span>Project Page</span>
                   </a>
                 </span>
               </div>
@@ -193,47 +93,27 @@
     </div>
   </section>
 
-  <!-- Framework Overview (Replaces Teaser Video) -->
-<!--   <section class="hero">
-    <div class="container is-max-desktop">
-      <div class="hero-body">
-        <figure class="image">
-          <img src="static/images/figure2_apd_framework.png" alt="Adversarial Prompt Distillation (APD) Framework Overview" loading="lazy"/>
-        </figure>
-        <h2 class="subtitle has-text-centered">
-          <strong>Figure 2:</strong> The structure of the APD framework: (a) Pre-training phase with masked language modeling; (b) Model distillation and reinforcement optimization using Llama as teacher and BERT as student. The framework transfers jailbreak generation capabilities efficiently while preserving stealth and attack performance.
-        </h2>
-      </div>
-    </div>
-  </section> -->
-
-  <!-- Complexity Comparison Chart -->
+  <!-- Figure 1: Complexity -->
   <section class="hero is-small">
     <div class="container is-max-desktop">
       <div class="hero-body">
         <figure class="image">
-          <img src="static/images/apd_overview.png" alt="Time and Memory Complexity of Mainstream Jailbreak Methods" loading="lazy"/>
+          <img src="static/images/apd_overview.png" alt="Complexity of mainstream jailbreak methods">
         </figure>
-        <h2 class="subtitle has-text-centered">
-          <strong>Figure 1:</strong> Measuring the complexity of mainstream generative jailbreaks. Existing methods like GCG, AutoDAN, and VERA require 10–45 minutes per attack and up to 80 GB of GPU memory. APD drastically reduces both time and space overhead.
-        </h2>
+        <h2 class="subtitle has-text-centered"><strong>Figure 1:</strong> Measuring the complexity of mainstream generative jailbreaks (time & memory). APD drastically reduces both.</h2>
       </div>
     </div>
   </section>
 
-  <!-- Paper Abstract -->
+  <!-- Abstract -->
   <section class="section hero is-light">
     <div class="container is-max-desktop">
       <div class="columns is-centered has-text-centered">
         <div class="column is-four-fifths">
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
-            <p>
-              As the scale and complexity of jailbreaking attacks on large language models (LLMs) continue to escalate, their efficiency and practical applicability are constrained, posing a profound challenge to LLM security. Jailbreaking techniques have advanced from manual prompt engineering to automated methodologies. Recent advances have automated jailbreaking approaches that harness LLMs to generate jailbreak instructions and adversarial examples, delivering encouraging results. Nevertheless, these methods universally incorporate an LLM generation phase, which, due to the intricacies of deploying and reasoning with LLMs, impedes their effective implementation and broader adoption.
-            </p>
-            <p>
-              To mitigate this issue, we introduce <strong>Adversarial Prompt Distillation (APD)</strong>, an innovative framework that integrates masked language modeling, reinforcement learning, and dynamic temperature control to distill LLM jailbreaking prowess into smaller language models (SLMs). This methodology enables efficient, robust jailbreak attacks while maintaining high success rates and accommodating a broader range of application contexts. Empirical evaluations affirm the approach’s superiority in attack efficacy, resource optimization, and cross-model versatility. Our research underscores the practicality of transferring jailbreak capabilities to SLMs, reveals inherent LLM vulnerabilities, and provides novel insights to advance LLM security investigations.
-            </p>
+            <p>As the scale and complexity of jailbreaking attacks on large language models (LLMs) continue to escalate, their efficiency and practical applicability are constrained, posing a profound challenge to LLM security. Recent advances have automated jailbreaking approaches that harness LLMs to generate jailbreak instructions and adversarial examples, delivering encouraging results. Nevertheless, these methods universally incorporate an LLM generation phase, which impedes their effective implementation.</p>
+            <p>We introduce <strong>Adversarial Prompt Distillation (APD)</strong>, an innovative framework that integrates masked language modeling, reinforcement learning, and dynamic temperature control to distill LLM jailbreaking prowess into smaller language models (SLMs). This enables efficient, robust jailbreak attacks while maintaining high success rates. Empirical evaluations affirm APD’s superiority in attack efficacy, resource optimization, and cross-model versatility.</p>
           </div>
         </div>
       </div>
@@ -244,153 +124,109 @@
   <section class="section">
     <div class="container is-max-desktop">
       <h2 class="title is-3 has-text-centered">Key Contributions</h2>
-      <div class="columns is-multiline">
+      <div class="columns is-multiline is-centered">
         <div class="column is-half">
-          <div class="box">
-            <article class="media">
-              <div class="media-left">
-                <span class="icon is-large has-text-primary">
-                  <i class="fas fa-exchange-alt fa-2x"></i>
-                </span>
-              </div>
-              <div class="media-content">
-                <div class="content">
-                  <h4>Pioneer Transfer of Jailbreak Capability</h4>
-                  <p>First to distill jailbreaking knowledge from LLMs to SLMs (e.g., BERT), enabling lightweight models to generate effective adversarial prompts.</p>
-                </div>
-              </div>
-            </article>
-          </div>
+          <div class="box"><div class="content"><h4>First to transfer jailbreak capability from LLMs to SLMs</h4><p>Enables lightweight models (e.g., BERT) to generate highly effective adversarial prompts.</p></div></div>
         </div>
         <div class="column is-half">
-          <div class="box">
-            <article class="media">
-              <div class="media-left">
-                <span class="icon is-large has-text-success">
-                  <i class="fas fa-cogs fa-2x"></i>
-                </span>
-              </div>
-              <div class="media-content">
-                <div class="content">
-                  <h4>Adversarial Prompt Distillation (APD)</h4>
-                  <p>Multi-stage framework combining LoRA fine-tuning, KL divergence, dynamic temperature control, and RL-based template selection.</p>
-                </div>
-              </div>
-            </article>
-          </div>
+          <div class="box"><div class="content"><h4>Adversarial Prompt Distillation (APD) Framework</h4><p>Multi-stage pipeline combining LoRA fine-tuning, KL divergence, dynamic temperature control, and RLAIF-based template selection.</p></div></div>
         </div>
         <div class="column is-half">
-          <div class="box">
-            <article class="media">
-              <div class="media-left">
-                <span class="icon is-large has-text-info">
-                  <i class="fas fa-tachometer-alt fa-2x"></i>
-                </span>
-              </div>
-              <div class="media-content">
-                <div class="content">
-                  <h4>Superior Efficiency & Performance</h4>
-                  <p>Outperforms GCG, AutoDAN, VERA in attack success rate, harmfulness, and reduces time/memory by orders of magnitude.</p>
-                </div>
-              </div>
-            </article>
-          </div>
+          <div class="box"><div class="content"><h4>State-of-the-art efficiency & performance</h4><p>Outperforms GCG, AutoDAN, TAP, LLM-Virus in ASR while reducing time/memory by orders of magnitude.</p></div></div>
         </div>
         <div class="column is-half">
-          <div class="box">
-            <article class="media">
-              <div class="media-left">
-                <span class="icon is-large has-text-warning">
-                  <i class="fas fa-shield-alt fa-2x"></i>
-                </span>
-              </div>
-              <div class="media-content">
-                <div class="content">
-                  <h4>Security Implications</h4>
-                  <p>Exposes critical vulnerabilities in current LLM safety mechanisms and enables scalable red-teaming on edge devices.</p>
-                </div>
-              </div>
-            </article>
-          </div>
+          <div class="box"><div class="content"><h4>Important security implications</h4><p>Reveals critical vulnerabilities in current LLM safety and enables scalable red-teaming on edge devices.</p></div></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Methodology Highlights -->
+  <!-- Methodology -->
   <section class="section hero is-light">
     <div class="container is-max-desktop">
       <h2 class="title is-3 has-text-centered">Methodology</h2>
-      <div class="columns">
-        <div class="column is-two-thirds">
-          <h3 class="title is-5">Template Selection Criteria</h3>
-          <p>We systematically select jailbreak templates based on four key metrics:</p>
-          <ul>
-            <li><strong>Stealthiness:</strong> \( S_{\text{stealthiness}}(T) = 1 - P(\text{detect} | T) \)</li>
-            <li><strong>Harmfulness:</strong> \( S_{\text{harmfulness}}(T) = P(\text{harmful} | T) \)</li>
-            <li><strong>Efficiency:</strong> \( S_{\text{efficiency}}(T) = \frac{1}{|T|} \)</li>
-            <li><strong>Diversity:</strong> Ensures broad coverage of attack styles</li>
-          </ul>
+      <figure class="image">
+        <img src="static/images/figure2_apd_framework.png" alt="APD Framework Overview" loading="lazy">
+      </figure>
+      <h2 class="subtitle has-text-centered"><strong>Figure 2:</strong> Overview of Adversarial Prompt Distillation (APD).</h2>
+
+      <div class="columns is-variable is-8">
+        <div class="column">
+          <h3 class="title is-4">Template Selection</h3>
+          <p>We select the top-10 jailbreak templates according to a composite score of <strong>stealthiness</strong>, <strong>harmfulness</strong>, <strong>efficiency</strong>, and <strong>diversity</strong>.</p>
         </div>
         <div class="column">
-          <figure class="image">
-            <img src="static/images/template_selection.png" alt="Template Selection Pipeline" loading="lazy"/>
-          </figure>
+          <h3 class="title is-4">Two-Stage Distillation</h3>
+          <ul>
+            <li><strong>Pre-training:</strong> Enhance Llama-3.x as teacher with harmful generation ability</li>
+            <li><strong>Knowledge Distillation + RL:</strong> Transfer capability to BERT/ALBERT/RoBERTa using KL divergence, dynamic temperature annealing, and RLAIF policy optimization</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Victim Models -->
+  <!-- Experiments -->
   <section class="section">
     <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered">Evaluated Victim Models</h2>
-      <div class="columns is-centered">
-        <div class="column is-narrow">
-          <div class="tags are-medium">
-            <span class="tag is-dark">GPT-4</span>
-            <span class="tag is-dark">GPT-3.5-turbo</span>
-            <span class="tag is-success">Llama-2-7B</span>
-            <span class="tag is-success">Vicuna-7B</span>
-          </div>
+      <h2 class="title is-3 has-text-centered">Experiments</h2>
+
+      <h3 class="title is-4">Main Results on AdvBench & HarmBench</h3>
+      <div class="columns">
+        <div class="column">
+          <p class="has-text-centered"><strong>Table 4 – AdvBench (ASR<sub>k</sub> / ASR<sub>l</sub>)</strong></p>
+          <table class="table is-bordered is-striped is-fullwidth">
+            <thead><tr><th>Method</th><th>GPT-4</th><th>GPT-3.5</th><th>Llama-2-7B</th><th>Vicuna-7B</th></tr></thead>
+            <tbody>
+              <tr><td>LLM-Virus</td><td>74.0 / 36.5</td><td>90.8 / 96.5</td><td>95.6 / 96.6</td><td>93.5 / 97.0</td></tr>
+              <tr><td><strong>APD (Ours)</strong></td><td><strong>96.4 / 69.2</strong></td><td><strong>99.7 / 99.6</strong></td><td><strong>96.1 / 96.6</strong></td><td><strong>100.0 / 99.6</strong></td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="column">
+          <p class="has-text-centered"><strong>Table 5 – HarmBench (ASR<sub>c</sub>)</strong></p>
+          <table class="table is-bordered is-striped is-fullwidth">
+            <thead><tr><th>Method</th><th>GPT-4-0613</th><th>GPT-3.5-Turbo</th><th>Llama-2-7B</th><th>Vicuna-7B</th></tr></thead>
+            <tbody>
+              <tr><td>LLM-Virus</td><td>29.3</td><td>53.8</td><td>38.5</td><td>80.5</td></tr>
+              <tr><td>Ours (Teacher)</td><td>54.5</td><td>54.4</td><td>42.9</td><td>85.7</td></tr>
+              <tr><td><strong>Ours (Student)</strong></td><td><strong>63.0</strong></td><td><strong>56.2</strong></td><td><strong>50.0</strong></td><td><strong>86.2</strong></td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
+
+      <h3 class="title is-4">Efficiency (Table 3)</h3>
+      <p>After distillation, the student model (BERT) is <strong>~70× smaller</strong> and <strong>3–4× faster</strong> than the Llama teacher while achieving higher attack success rates.</p>
+
+      <h3 class="title is-4">Key Takeaways</h3>
+      <ul>
+        <li>APD achieves <strong>new SOTA</strong> on both AdvBench and HarmBench across GPT-4, GPT-3.5, Llama-2, and Vicuna.</li>
+        <li>Distillation not only preserves but <strong>often improves</strong> attack performance.</li>
+        <li>Enables efficient jailbreak attacks on resource-constrained devices.</li>
+      </ul>
     </div>
   </section>
 
   <!-- BibTeX -->
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
-      <div class="bibtex-header">
-        <h2 class="title">BibTeX</h2>
-        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
-          <i class="fas fa-copy"></i>
-          <span class="copy-text">Copy</span>
-        </button>
-      </div>
-      <pre id="bibtex-code"><code>@article{li2025efficient,
-  title={Efficient and Stealthy Jailbreak Attacks via Adversarial Prompt Distillation from LLMs to SLMs},
-  author={Li, Xiang and Zhang, Chong and Wang, Jia and Wu, Fangyu and Li, Yushi and Jin, Xiaobo},
-  journal={arXiv preprint arXiv:2506.17231},
-  year={2025}
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@article{li2025efficient,
+  title   = {Efficient and Stealthy Jailbreak Attacks via Adversarial Prompt Distillation from LLMs to SLMs},
+  author  = {Li, Xiang and Zhang, Chong and Wang, Jia and Wu, Fangyu and Li, Yushi and Jin, Xiaobo},
+  journal = {arXiv preprint arXiv:2506.17231},
+  year    = {2025}
 }</code></pre>
     </div>
   </section>
 
   <footer class="footer">
     <div class="container">
-      <div class="columns is-centered">
-        <div class="column is-8">
-          <div class="content">
-            <p>
-              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> adapted from <a href="https://nerfies.github.io" target="_blank">Nerfies</a>.
-              Licensed under <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a>.
-            </p>
-          </div>
-        </div>
+      <div class="content has-text-centered">
+        <p>Built with the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template">Academic Project Page Template</a>.</p>
       </div>
     </div>
   </footer>
 </body>
-
 </html>
