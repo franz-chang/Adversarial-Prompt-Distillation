@@ -193,7 +193,7 @@
     </div>
   </section>
 
-  <!-- Framework Overview (Replaces Teaser Video) -->
+<!-- Framework Overview (Replaces Teaser Video) -->
 <!--   <section class="hero">
     <div class="container is-max-desktop">
       <div class="hero-body">
@@ -317,18 +317,66 @@
     </div>
   </section>
 
-<section class="section">
-  <div class="container">
+<!-- Method Overview -->
+<section class="section hero is-light">
+  <div class="container is-max-desktop">
     <h2 class="title is-3 has-text-centered">Method Overview</h2>
-    <div class="content">
-      <p>AGLS works in three main steps:</p>
-      <ol>
-        <li><strong>Hierarchical decomposition & checkpoint setting</strong> – Split input into sub-clauses and define linguistic checking points (usually punctuation).</li>
-        <li><strong>Masked keyword replacement with Top-k candidates</strong> – At each checking point, mask the current keyword and generate Top-k semantically similar replacements.</li>
-        <li><strong>Adaptive rank adjustment</strong> – Dynamically move up/down in the Top-k list (more similar) or down (more divergent) to keep partial BERTScore ≈ 0.80 while maximizing final goal discrepancy.</li>
-      </ol>
-      <p>This greedy local search with similarity checkpoints successfully hijacks the optimizer’s “best candidate” selection in real systems.</p>
+    
+    <div class="columns is-multiline is-centered">
+      <!-- Stage 1 -->
+      <div class="column is-one-third">
+        <div class="box has-text-centered">
+          <span class="icon is-large has-text-primary mb-4">
+            <i class="fas fa-clipboard-list fa-3x"></i>
+          </span>
+          <h3 class="title is-5">1. Template Selection & Prompt Generation</h3>
+          <p class="content">
+            We first collect and rank thousands of existing jailbreak templates using four metrics: <strong>Stealthiness</strong>, <strong>Harmfulness</strong>, <strong>Efficiency</strong>, and <strong>Diversity</strong>. The highest-scoring templates are combined with harmful instructions to form the initial adversarial prompt pool.
+          </p>
+        </div>
+      </div>
+
+      <!-- Stage 2 -->
+      <div class="column is-one-third">
+        <div class="box has-text-centered">
+          <span class="icon is-large has-text-success mb-4">
+            <i class="fas fa-exchange-alt fa-3x"></i>
+          </span>
+          <h3 class="title is-5">2. Adversarial Knowledge Transfer (Distillation)</h3>
+          <p class="content">
+            A large teacher LLM (Llama-2-70B or GPT-4) generates high-quality jailbreak prompts. We then distill this capability into a small student model (BERT-base/ALBERT/RoBERTa) via:
+            <ul class="mt-3" style="text-align:left;display:inline-block;">
+              <li>Masked Language Modeling pre-training</li>
+              <li>LoRA fine-tuning</li>
+              <li>KL-divergence loss between teacher and student distributions</li>
+              <li>Dynamic temperature scheduling for better exploration–exploitation balance</li>
+            </ul>
+          </p>
+        </div>
+      </div>
+
+      <!-- Stage 3 -->
+      <div class="column is-one-third">
+        <div class="box has-text-centered">
+          <span class="icon is-large has-text-info mb-4">
+            <i class="fas fa-brain fa-3x"></i>
+          </span>
+          <h3 class="title is-5">3. Reinforcement Learning Optimization (RLAIF) Optimization</h3>
+          <p class="content">
+            The distilled student model is further optimized using Reinforcement Learning from AI Feedback (RLAIF). A composite reward function simultaneously maximizes:
+            <strong>Attack Success Rate</strong>, <strong>Harmfulness Score</strong>, and <strong>Diversity</strong>, while keeping prompts short and stealthy. Policy gradient updates continuously improve the student’s jailbreak generation ability.
+          </p>
+        </div>
+      </div>
     </div>
+
+    <!-- Framework Figure -->
+    <figure class="image is-fullwidth mt-6">
+      <img src="static/images/apd_overview.png" alt="Adversarial Prompt Distillation (APD) Framework Overview" loading="lazy">
+      <figcaption class="has-text-centered mt-3">
+        <strong>Figure 2:</strong> Overview of the three-stage Adversarial Prompt Distillation (APD) pipeline.
+      </figcaption>
+    </figure>
   </div>
 </section>
 
@@ -475,5 +523,6 @@
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a7302a9efc3fd33',t:'MTc2NDU5NjU3NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 
 </html>
+
 
 
