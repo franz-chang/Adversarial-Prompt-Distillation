@@ -317,29 +317,20 @@
     </div>
   </section>
 
-  <!-- Methodology Highlights -->
-  <section class="section hero is-light">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered">Methodology</h2>
-      <div class="columns">
-        <div class="column is-two-thirds">
-          <h3 class="title is-5">Template Selection Criteria</h3>
-          <p>We systematically select jailbreak templates based on four key metrics:</p>
-          <ul>
-            <li><strong>Stealthiness:</strong> \( S_{\text{stealthiness}}(T) = 1 - P(\text{detect} | T) \)</li>
-            <li><strong>Harmfulness:</strong> \( S_{\text{harmfulness}}(T) = P(\text{harmful} | T) \)</li>
-            <li><strong>Efficiency:</strong> \( S_{\text{efficiency}}(T) = \frac{1}{|T|} \)</li>
-            <li><strong>Diversity:</strong> Ensures broad coverage of attack styles</li>
-          </ul>
-        </div>
-        <div class="column">
-          <figure class="image">
-            <img src="static/images/template_selection.png" alt="Template Selection Pipeline" loading="lazy"/>
-          </figure>
-        </div>
-      </div>
+<section class="section">
+  <div class="container">
+    <h2 class="title is-3 has-text-centered">Method Overview</h2>
+    <div class="content">
+      <p>AGLS works in three main steps:</p>
+      <ol>
+        <li><strong>Hierarchical decomposition & checkpoint setting</strong> – Split input into sub-clauses and define linguistic checking points (usually punctuation).</li>
+        <li><strong>Masked keyword replacement with Top-k candidates</strong> – At each checking point, mask the current keyword and generate Top-k semantically similar replacements.</li>
+        <li><strong>Adaptive rank adjustment</strong> – Dynamically move up/down in the Top-k list (more similar) or down (more divergent) to keep partial BERTScore ≈ 0.80 while maximizing final goal discrepancy.</li>
+      </ol>
+      <p>This greedy local search with similarity checkpoints successfully hijacks the optimizer’s “best candidate” selection in real systems.</p>
     </div>
-  </section>
+  </div>
+</section>
 
   <!-- Victim Models -->
   <section class="section">
@@ -394,3 +385,4 @@
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a7302a9efc3fd33',t:'MTc2NDU5NjU3NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 
 </html>
+
