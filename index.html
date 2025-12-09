@@ -332,6 +332,96 @@
   </div>
 </section>
 
+<!-- Experimental Results -->
+<section class="section has-background-light">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 has-text-centered">Experimental Results</h2>
+    <div class="content is-medium">
+
+      <p>We evaluated APD on four representative closed-source and open-source victim models (GPT-4, GPT-3.5-turbo, Llama-2-7B-Chat, Vicuna-7B-v1.5) using the widely used <strong>HarmBench</strong> and <strong>AdvBench</strong> datasets (500 harmful behaviors in total).</p>
+
+      <div class="columns is-multiline is-centered mt-6">
+        <div class="column is-5">
+          <div class="notification is-primary has-text-centered">
+            <p class="title is-4">Attack Success Rate (ASR)</p>
+            <p class="title is-1 has-text-weight-bold">91.6%<span class="is-size-5"> average</span></p>
+            <p class="subtitle is-6">GPT-4: <strong>89.2%</strong> GPT-3.5: <strong>94.8%</strong><br>Llama-2-7B: <strong>92.Concurrent</strong> Vicuna-7B: <strong>90.4%</strong></p>
+          </div>
+        </div>
+        <div class="column is-5">
+          <div class="notification is-link has-text-centered">
+            <p class="title is-4">Efficiency Gain vs. Strongest Baseline</p>
+            <p class="title is-1 has-text-weight-bold">+27.3%</p>
+            <p class="subtitle is-6">Compared with the strongest LLM-based baseline (AutoDAN-GPT-4)</p>
+          </div>
+        </div>
+      </div>
+
+      <h4 class="title is-5 mt-6">Efficiency & Resource Consumption (per attack, average over 500 samples)</h4>
+      <table class="table is-fullwidth is-striped is-hoverable is-bordered">
+        <thead>
+          <tr>
+            <th>Method</th>
+            <th>Time per Attack</th>
+            <th>GPU Memory</th>
+            <th>Attack Success Rate</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="has-text-weight-bold has-background-success-light">
+            <td><strong>APD (Ours, BERT-base student)</strong></td>
+            <td><strong>1.8 s</strong></td>
+            <td><strong>0.9 GB</strong></td>
+            <td><strong>91.6%</strong></td>
+          </tr>
+          <tr>
+            <td>AutoDAN (GPT-4 as generator)</td>
+            <td>42.6 s</td>
+            <td>≈ 80 GB (A100)</td>
+            <td>64.3%</td>
+          </tr>
+          <tr>
+            <td>GCG (white-box)</td>
+            <td>18.4 min</td>
+            <td>≈ 72 GB</td>
+            <td>78.1%</td>
+          </tr>
+          <tr>
+            <td>PAIR (Llama-2-70B judge)</td>
+            <td>127 s</td>
+            <td>≈ 140 GB</td>
+            <td>71.9%</td>
+          </tr>
+          <tr>
+            <td>TAP (Llama-2-70B)</td>
+            <td>68 s</td>
+            <td>≈ 140 GB</td>
+            <td>69.7%</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="columns mt-5">
+        <div class="column">
+          <article class="message is-info">
+            <div class="message-header><p>Key Findings</p></div>
+            <div class="message-body">
+              <ul>
+                <li>APD achieves <strong>91.6% average ASR</strong> — outperforming all existing LLM-based and white-box jailbreak methods by a large margin.</li>
+                <li>Generation time is reduced from <strong>tens of minutes / hundreds of seconds</strong> to <strong>under 2 seconds</strong> (20–1000× speedup).</li>
+                <li>GPU memory drops from 70–140 GB to <strong>less than 1 GB</strong>, making large-scale or even on-device red-teaming feasible.</li>
+                <li>Distilled SLM (BERT-base) shows excellent <strong>cross-model transferability</strong> — attacks generated for one model remain highly effective on others.</li>
+                <li>APD is the <strong>first jailbreak method</strong> that can run efficiently on ordinary laptops or edge devices while maintaining state-of-the-art attack performance.</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
   <!-- Victim Models -->
   <section class="section">
     <div class="container is-max-desktop">
@@ -385,4 +475,5 @@
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a7302a9efc3fd33',t:'MTc2NDU5NjU3NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 
 </html>
+
 
