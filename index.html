@@ -3,394 +3,132 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-  <!-- Primary Meta Tags -->
-  <meta name="title" content="Efficient and Stealthy Jailbreak Attacks via Adversarial Prompt Distillation from LLMs to SLMs">
-  <meta name="description" content="We introduce Adversarial Prompt Distillation (APD), a novel framework that transfers jailbreak capabilities from large language models (LLMs) to small language models (SLMs) using masked language modeling, KL divergence, reinforcement learning, and dynamic temperature control. APD achieves high attack success rates with significantly reduced time and resource demands.">
-  <meta name="keywords" content="jailbreak attacks, adversarial prompt distillation, LLMs, SLMs, knowledge distillation, reinforcement learning, LLM security, prompt engineering">
-  <meta name="author" content="Xiang Li, Chong Zhang, Jia Wang, Fangyu Wu, Yushi Li, Xiaobo Jin">
-  <meta name="robots" content="index, follow">
-  <meta name="language" content="English">
-  
-  <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="article">
-  <meta property="og:site_name" content="Xi’an Jiaotong-Liverpool University">
-  <meta property="og:title" content="Efficient and Stealthy Jailbreak Attacks via Adversarial Prompt Distillation from LLMs to SLMs">
-  <meta property="og:description" content="We introduce Adversarial Prompt Distillation (APD), a novel framework that transfers jailbreak capabilities from large language models (LLMs) to small language models (SLMs) using masked language modeling, KL divergence, reinforcement learning, and dynamic temperature control. APD achieves high attack success rates with significantly reduced time and resource demands.">
-  <meta property="og:url" content="https://franz-chang.github.io/Adversarial-Prompt-Distillation">
-  <meta property="og:image" content="https://franz-chang.github.io/Adversarial-Prompt-Distillation/static/images/apd_overview.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Adversarial Prompt Distillation Framework Overview">
-  <meta property="article:published_time" content="2025-11-10T00:00:00.000Z">
-  <meta property="article:author" content="Xiang Li">
-  <meta property="article:section" content="AI Security">
-  <meta property="article:tag" content="jailbreak">
-  <meta property="article:tag" content="knowledge distillation">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@xjtlu_ai">
-  <meta name="twitter:creator" content="@lxgem">
-  <meta name="twitter:title" content="Efficient and Stealthy Jailbreak Attacks via Adversarial Prompt Distillation from LLMs to SLMs">
-  <meta name="twitter:description" content="We introduce Adversarial Prompt Distillation (APD), a novel framework that transfers jailbreak capabilities from large language models (LLMs) to small language models (SLMs) using masked language modeling, KL divergence, reinforcement learning, and dynamic temperature control. APD achieves high attack success rates with significantly reduced time and resource demands.">
-  <meta name="twitter:image" content="https://franz-chang.github.io/Adversarial-Prompt-Distillation/static/images/apd_overview.png">
-  <meta name="twitter:image:alt" content="Adversarial Prompt Distillation Framework Overview">
-
-  <!-- Academic/Research Specific -->
-  <meta name="citation_title" content="Efficient and Stealthy Jailbreak Attacks via Adversarial Prompt Distillation from LLMs to SLMs">
-  <meta name="citation_author" content="Li, Xiang">
-  <meta name="citation_author" content="Zhang, Chong">
-  <meta name="citation_author" content="Wang, Jia">
-  <meta name="citation_author" content="Wu, Fangyu">
-  <meta name="citation_author" content="Li, Yushi">
-  <meta name="citation_author" content="Jin, Xiaobo">
-  <meta name="citation_publication_date" content="2025">
-  <meta name="citation_pdf_url" content="https://franz-chang.github.io/Adversarial-Prompt-Distillation/static/pdfs/Efficient_and_Stealthy_Jailbreak_Attacks_via_Adversarial_Prompt_Distillation_from_LLMs_to_SLMs.pdf">
-  
-  <!-- Additional SEO -->
-  <meta name="theme-color" content="#2563eb">
-  <meta name="msapplication-TileColor" content="#2563eb">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="default">
-  
-  <!-- Preconnect for performance -->
-  
-  
-  <link rel="preconnect" href="https://ajax.googleapis.com">
-  <link rel="preconnect" href="https://documentcloud.adobe.com">
-  <link rel="preconnect" href="https://cdn.jsdelivr.net">
-
-  <title>Efficient and Stealthy Jailbreak Attacks via Adversarial Prompt Distillation from LLMs to SLMs</title>
-  
-  <!-- Favicon and App Icons -->
-  <link rel="icon" type="image/x-icon" href="static/images/favicon.ico">
-  <link rel="apple-touch-icon" href="static/images/favicon.ico">
-  
-  <!-- Critical CSS -->
-  <link rel="stylesheet" href="static/css/bulma.min.css">
-  <link rel="stylesheet" href="static/css/index.css">
-  
-  <!-- Non-critical CSS -->
-  <link rel="preload" href="static/css/bulma-carousel.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="static/css/bulma-slider.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="static/css/fontawesome.all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <link rel="preload" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  
-  <noscript>
-    <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
-    <link rel="stylesheet" href="static/css/bulma-slider.min.css">
-    <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
-  </noscript>
-  
-  <!-- Fonts -->
-  <style type="text/css">@font-face {font-family:Inter;font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.0.16/greek-ext/wght/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.0.16/latin/wght/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.0.16/latin-ext/wght/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.0.16/cyrillic-ext/wght/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.0.16/vietnamese/wght/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.0.16/greek/wght/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:400;src:url(/cf-fonts/v/inter/5.0.16/cyrillic/wght/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.0.16/cyrillic/wght/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.0.16/cyrillic-ext/wght/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.0.16/greek/wght/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.0.16/greek-ext/wght/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.0.16/latin/wght/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.0.16/latin-ext/wght/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:500;src:url(/cf-fonts/v/inter/5.0.16/vietnamese/wght/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:600;src:url(/cf-fonts/v/inter/5.0.16/greek/wght/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:600;src:url(/cf-fonts/v/inter/5.0.16/latin/wght/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:600;src:url(/cf-fonts/v/inter/5.0.16/vietnamese/wght/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:600;src:url(/cf-fonts/v/inter/5.0.16/latin-ext/wght/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:600;src:url(/cf-fonts/v/inter/5.0.16/greek-ext/wght/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:600;src:url(/cf-fonts/v/inter/5.0.16/cyrillic-ext/wght/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:600;src:url(/cf-fonts/v/inter/5.0.16/cyrillic/wght/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:700;src:url(/cf-fonts/v/inter/5.0.16/vietnamese/wght/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:700;src:url(/cf-fonts/v/inter/5.0.16/cyrillic/wght/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:700;src:url(/cf-fonts/v/inter/5.0.16/latin-ext/wght/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:700;src:url(/cf-fonts/v/inter/5.0.16/greek/wght/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:700;src:url(/cf-fonts/v/inter/5.0.16/latin/wght/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:700;src:url(/cf-fonts/v/inter/5.0.16/greek-ext/wght/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:700;src:url(/cf-fonts/v/inter/5.0.16/cyrillic-ext/wght/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:800;src:url(/cf-fonts/v/inter/5.0.16/latin-ext/wght/normal.woff2);unicode-range:U+0100-02AF,U+0304,U+0308,U+0329,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20CF,U+2113,U+2C60-2C7F,U+A720-A7FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:800;src:url(/cf-fonts/v/inter/5.0.16/vietnamese/wght/normal.woff2);unicode-range:U+0102-0103,U+0110-0111,U+0128-0129,U+0168-0169,U+01A0-01A1,U+01AF-01B0,U+0300-0301,U+0303-0304,U+0308-0309,U+0323,U+0329,U+1EA0-1EF9,U+20AB;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:800;src:url(/cf-fonts/v/inter/5.0.16/cyrillic-ext/wght/normal.woff2);unicode-range:U+0460-052F,U+1C80-1C88,U+20B4,U+2DE0-2DFF,U+A640-A69F,U+FE2E-FE2F;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:800;src:url(/cf-fonts/v/inter/5.0.16/cyrillic/wght/normal.woff2);unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:800;src:url(/cf-fonts/v/inter/5.0.16/greek/wght/normal.woff2);unicode-range:U+0370-03FF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:800;src:url(/cf-fonts/v/inter/5.0.16/greek-ext/wght/normal.woff2);unicode-range:U+1F00-1FFF;font-display:swap;}@font-face {font-family:Inter;font-style:normal;font-weight:800;src:url(/cf-fonts/v/inter/5.0.16/latin/wght/normal.woff2);unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+2074,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD;font-display:swap;}</style>
-  
-  <!-- Defer non-critical JavaScript -->
-  <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script defer src="https://documentcloud.adobe.com/view-sdk/main.js"></script>
-  <script defer src="static/js/fontawesome.all.min.js"></script>
-  <script defer src="static/js/bulma-carousel.min.js"></script>
-  <script defer src="static/js/bulma-slider.min.js"></script>
-  <script defer src="static/js/index.js"></script>
-  
-  <!-- Structured Data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "ScholarlyArticle",
-    "headline": "Efficient and Stealthy Jailbreak Attacks via Adversarial Prompt Distillation from LLMs to SLMs",
-    "description": "We introduce Adversarial Prompt Distillation (APD), a novel framework that transfers jailbreak capabilities from large language models (LLMs) to small language models (SLMs) using masked language modeling, KL divergence, reinforcement learning, and dynamic temperature control. APD achieves high attack success rates with significantly reduced time and resource demands.",
-    "author": [
-      { "@type": "Person", "name": "Xiang Li", "affiliation": { "@type": "Organization", "name": "Xi’an Jiaotong-Liverpool University" } },
-      { "@type": "Person", "name": "Chong Zhang", "affiliation": { "@type": "Organization", "name": "Xi’an Jiaotong-Liverpool University" } },
-      { "@type": "Person", "name": "Jia Wang", "affiliation": { "@type": "Organization", "name": "Xi’an Jiaotong-Liverpool University" } },
-      { "@type": "Person", "name": "Fangyu Wu", "affiliation": { "@type": "Organization", "name": "Xi’an Jiaotong-Liverpool University" } },
-      { "@type": "Person", "name": "Yushi Li", "affiliation": { "@type": "Organization", "name": "Xi’an Jiaotong-Liverpool University" } },
-      { "@type": "Person", "name": "Xiaobo Jin", "affiliation": { "@type": "Organization", "name": "Xi’an Jiaotong-Liverpool University" } }
-    ],
-    "datePublished": "2025-11-10",
-    "publisher": { "@type": "Organization", "name": "Preprint" },
-    "url": "https://franz-chang.github.io/Adversarial-Prompt-Distillation",
-    "image": "https://franz-chang.github.io/Adversarial-Prompt-Distillation/static/images/apd_overview.png",
-    "keywords": ["jailbreak attacks", "adversarial prompt distillation", "LLMs", "SLMs", "knowledge distillation", "reinforcement learning"],
-    "abstract": "As the scale and complexity of jailbreaking attacks on large language models (LLMs) continue to escalate, their efficiency and practical applicability are constrained, posing a profound challenge to LLM security. Jailbreaking techniques have advanced from manual prompt engineering to automated methodologies. Recent advances have automated jailbreaking approaches that harness LLMs to generate jailbreak instructions and adversarial examples, delivering encouraging results. Nevertheless, these methods universally incorporate an LLM generation phase, which, due to the intricacies of deploying and reasoning with LLMs, impedes their effective implementation and broader adoption. To mitigate this issue, we introduce Adversarial Prompt Distillation, an innovative framework that integrates masked language modeling, reinforcement learning, and dynamic temperature control to distill LLM jailbreaking prowess into smaller language models (SLMs). This methodology enables efficient, robust jailbreak attacks while maintaining high success rates and accommodating a broader range of application contexts. Empirical evaluations affirm the approach’s superiority in attack efficacy, resource optimization, and cross-model versatility.",
-    "isAccessibleForFree": true,
-    "license": "https://creativecommons.org/licenses/by/4.0/"
-  }
-  </script>
+  <title>Semantic-Preserving Hijacking Attacks via Adaptive Greedy Local Search</title>
+  <meta name="description" content="We propose Adaptive Greedy Local Search (AGLS), a black-box semantic-preserving attack that hijacks automatic prompt optimization modules in LLMs while keeping BERTScore ≈ 0.80.">
+  <meta name="author" content="Chong Zhang, Xiang Li, Jia Wang, Shan Liang, Haochen Xue, Xiaobo Jin">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    .hero.is-primary { background: linear-gradient(141deg,#1e88e5 0%,#1565c0 100%); }
+    .title, .subtitle { color: #fff; }
+    pre { background:#f8f9fa; padding:1rem; border-radius:6px; overflow-x:auto; }
+  </style>
 </head>
 <body>
 
-  <!-- Scroll to Top Button -->
-  <button class="scroll-to-top" onclick="scrollToTop()" title="Scroll to top" aria-label="Scroll to top">
-    <i class="fas fa-chevron-up"></i>
-  </button>
-
-  <main id="main-content">
-  <section class="hero">
-    <div class="hero-body">
-      <div class="container is-max-desktop">
-        <div class="columns is-centered">
-          <div class="column has-text-centered">
-            <h1 class="title is-1 publication-title">Efficient and Stealthy Jailbreak Attacks via Adversarial Prompt Distillation from LLMs to SLMs</h1>
-            <div class="is-size-5 publication-authors">
-              <span class="author-block">
-                <a href="https://github.com/lxgem" target="_blank">Xiang Li</a><sup>*</sup>,</span>
-              <span class="author-block">
-                <a href="#" target="_blank">Chong Zhang</a><sup>*</sup>,</span>
-              <span class="author-block">
-                <a href="#" target="_blank">Jia Wang</a>,</span>
-              <span class="author-block">
-                <a href="#" target="_blank">Fangyu Wu</a>,</span>
-              <span class="author-block">
-                <a href="#" target="_blank">Yushi Li</a>,</span>
-              <span class="author-block">
-                <a href="/cdn-cgi/l/email-protection#2f57464e404d40014546416f57455b435a014a4b5a014c41" target="_blank">Xiaobo Jin</a><sup>†</sup>
-              </span>
-            </div>
-
-            <div class="is-size-5 publication-authors">
-              <span class="author-block">
-                <sup>1</sup>Xi’an Jiaotong-Liverpool University,<br>
-                <sup>2</sup>The Chinese University of Hong Kong,<br>
-                <sup>3</sup>University of Liverpool
-              </span>
-              <span class="eql-cntrb"><small><br><sup>*</sup>Equal Contribution <sup>†</sup>Corresponding Author</small></span>
-            </div>
-
-            <div class="column has-text-centered">
-              <div class="publication-links">
-                <span class="link-block">
-                  <a href="static/pdfs/Efficient_and_Stealthy_Jailbreak_Attacks_via_Adversarial_Prompt_Distillation_from_LLMs_to_SLMs.pdf" target="_blank"
-                     class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
-                    <span>Paper</span>
-                  </a>
-                </span>
-
-                <span class="link-block">
-                  <a href="https://github.com/lxgem/Efficient_and_Stealthy_Jailbreak_Attacks_via_Adversarial_Prompt/tree/main" target="_blank"
-                     class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon"><i class="fab fa-github"></i></span>
-                    <span>Code</span>
-                  </a>
-                </span>
-
-                <span class="link-block">
-                  <a href="https://franz-chang.github.io/Adversarial-Prompt-Distillation" target="_blank"
-                     class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon"><i class="fas fa-globe"></i></span>
-                    <span>Project Page</span>
-                  </a>
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Framework Overview (Replaces Teaser Video) -->
-<!--   <section class="hero">
-    <div class="container is-max-desktop">
-      <div class="hero-body">
-        <figure class="image">
-          <img src="static/images/figure2_apd_framework.png" alt="Adversarial Prompt Distillation (APD) Framework Overview" loading="lazy"/>
-        </figure>
-        <h2 class="subtitle has-text-centered">
-          <strong>Figure 2:</strong> The structure of the APD framework: (a) Pre-training phase with masked language modeling; (b) Model distillation and reinforcement optimization using Llama as teacher and BERT as student. The framework transfers jailbreak generation capabilities efficiently while preserving stealth and attack performance.
-        </h2>
-      </div>
-    </div>
-  </section> -->
-
-  <!-- Complexity Comparison Chart -->
-  <section class="hero is-small">
-    <div class="container is-max-desktop">
-      <div class="hero-body">
-        <figure class="image">
-          <img src="static/images/apd_overview.png" alt="Time and Memory Complexity of Mainstream Jailbreak Methods" loading="lazy"/>
-        </figure>
-        <h2 class="subtitle has-text-centered">
-          <strong>Figure 1:</strong> Measuring the complexity of mainstream generative jailbreaks. Existing methods like GCG, AutoDAN, and VERA require 10–45 minutes per attack and up to 80 GB of GPU memory. APD drastically reduces both time and space overhead.
-        </h2>
-      </div>
-    </div>
-  </section>
-
-  <!-- Paper Abstract -->
-  <section class="section hero is-light">
-    <div class="container is-max-desktop">
-      <div class="columns is-centered has-text-centered">
-        <div class="column is-four-fifths">
-          <h2 class="title is-3">Abstract</h2>
-          <div class="content has-text-justified">
-            <p>
-              As the scale and complexity of jailbreaking attacks on large language models (LLMs) continue to escalate, their efficiency and practical applicability are constrained, posing a profound challenge to LLM security. Jailbreaking techniques have advanced from manual prompt engineering to automated methodologies. Recent advances have automated jailbreaking approaches that harness LLMs to generate jailbreak instructions and adversarial examples, delivering encouraging results. Nevertheless, these methods universally incorporate an LLM generation phase, which, due to the intricacies of deploying and reasoning with LLMs, impedes their effective implementation and broader adoption.
-            </p>
-            <p>
-              To mitigate this issue, we introduce <strong>Adversarial Prompt Distillation (APD)</strong>, an innovative framework that integrates masked language modeling, reinforcement learning, and dynamic temperature control to distill LLM jailbreaking prowess into smaller language models (SLMs). This methodology enables efficient, robust jailbreak attacks while maintaining high success rates and accommodating a broader range of application contexts. Empirical evaluations affirm the approach’s superiority in attack efficacy, resource optimization, and cross-model versatility. Our research underscores the practicality of transferring jailbreak capabilities to SLMs, reveals inherent LLM vulnerabilities, and provides novel insights to advance LLM security investigations.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Key Contributions -->
-  <section class="section">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered">Key Contributions</h2>
-      <div class="columns is-multiline">
-        <div class="column is-half">
-          <div class="box">
-            <article class="media">
-              <div class="media-left">
-                <span class="icon is-large has-text-primary">
-                  <i class="fas fa-exchange-alt fa-2x"></i>
-                </span>
-              </div>
-              <div class="media-content">
-                <div class="content">
-                  <h4>Pioneer Transfer of Jailbreak Capability</h4>
-                  <p>First to distill jailbreaking knowledge from LLMs to SLMs (e.g., BERT), enabling lightweight models to generate effective adversarial prompts.</p>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-        <div class="column is-half">
-          <div class="box">
-            <article class="media">
-              <div class="media-left">
-                <span class="icon is-large has-text-success">
-                  <i class="fas fa-cogs fa-2x"></i>
-                </span>
-              </div>
-              <div class="media-content">
-                <div class="content">
-                  <h4>Adversarial Prompt Distillation (APD)</h4>
-                  <p>Multi-stage framework combining LoRA fine-tuning, KL divergence, dynamic temperature control, and RL-based template selection.</p>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-        <div class="column is-half">
-          <div class="box">
-            <article class="media">
-              <div class="media-left">
-                <span class="icon is-large has-text-info">
-                  <i class="fas fa-tachometer-alt fa-2x"></i>
-                </span>
-              </div>
-              <div class="media-content">
-                <div class="content">
-                  <h4>Superior Efficiency & Performance</h4>
-                  <p>Outperforms GCG, AutoDAN, VERA in attack success rate, harmfulness, and reduces time/memory by orders of magnitude.</p>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-        <div class="column is-half">
-          <div class="box">
-            <article class="media">
-              <div class="media-left">
-                <span class="icon is-large has-text-warning">
-                  <i class="fas fa-shield-alt fa-2x"></i>
-                </span>
-              </div>
-              <div class="media-content">
-                <div class="content">
-                  <h4>Security Implications</h4>
-                  <p>Exposes critical vulnerabilities in current LLM safety mechanisms and enables scalable red-teaming on edge devices.</p>
-                </div>
-              </div>
-            </article>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Methodology Highlights -->
-  <section class="section hero is-light">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered">Methodology</h2>
-      <div class="columns">
-        <div class="column is-two-thirds">
-          <h3 class="title is-5">Template Selection Criteria</h3>
-          <p>We systematically select jailbreak templates based on four key metrics:</p>
-          <ul>
-            <li><strong>Stealthiness:</strong> \( S_{\text{stealthiness}}(T) = 1 - P(\text{detect} | T) \)</li>
-            <li><strong>Harmfulness:</strong> \( S_{\text{harmfulness}}(T) = P(\text{harmful} | T) \)</li>
-            <li><strong>Efficiency:</strong> \( S_{\text{efficiency}}(T) = \frac{1}{|T|} \)</li>
-            <li><strong>Diversity:</strong> Ensures broad coverage of attack styles</li>
-          </ul>
-        </div>
-        <div class="column">
-          <figure class="image">
-            <img src="static/images/template_selection.png" alt="Template Selection Pipeline" loading="lazy"/>
-          </figure>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Victim Models -->
-  <section class="section">
-    <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered">Evaluated Victim Models</h2>
-      <div class="columns is-centered">
-        <div class="column is-narrow">
-          <div class="tags are-medium">
-            <span class="tag is-dark">GPT-4</span>
-            <span class="tag is-dark">GPT-3.5-turbo</span>
-            <span class="tag is-success">Llama-2-7B</span>
-            <span class="tag is-success">Vicuna-7B</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- BibTeX -->
-  <section class="section" id="BibTeX">
-    <div class="container is-max-desktop content">
-      <div class="bibtex-header">
-        <h2 class="title">BibTeX</h2>
-        <button class="copy-bibtex-btn" onclick="copyBibTeX()" title="Copy BibTeX to clipboard">
-          <i class="fas fa-copy"></i>
-          <span class="copy-text">Copy</span>
-        </button>
-      </div>
-      <pre id="bibtex-code"><code>@article{li2025efficient,
-  title={Efficient and Stealthy Jailbreak Attacks via Adversarial Prompt Distillation from LLMs to SLMs},
-  author={Li, Xiang and Zhang, Chong and Wang, Jia and Wu, Fangyu and Li, Yushi and Jin, Xiaobo},
-  journal={arXiv preprint arXiv:2506.17231},
-  year={2025}
-}</code></pre>
-    </div>
-  </section>
-
-  <footer class="footer">
+<section class="hero is-primary is-bold">
+  <div class="hero-body">
     <div class="container">
-      <div class="columns is-centered">
-        <div class="column is-8">
-          <div class="content">
-            <p>
-              This page was built using the <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a> adapted from <a href="https://nerfies.github.io" target="_blank">Nerfies</a>.
-              Licensed under <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank">CC BY-SA 4.0</a>.
-            </p>
-          </div>
+      <h1 class="title is-1">Semantic-Preserving Hijacking Attacks via Adaptive Greedy Local Search</h1>
+      <h2 class="subtitle is-4">
+        Chong Zhang<sup>*</sup>&nbsp;&nbsp; Xiang Li<sup>*</sup>&nbsp;&nbsp; Jia Wang&nbsp;&nbsp; Shan Liang&nbsp;&nbsp; Haochen Xue&nbsp;&nbsp; Xiaobo Jin<sup>†</sup>
+      </h2>
+      <p class="is-size-5">
+        Xi’an Jiaotong-Liverpool University | The Chinese University of Hong Kong | University of Liverpool<br>
+        <sup>*</sup>Equal contribution <sup>†</sup>Corresponding author: <a href="mailto:Xiaobo.Jin@xjtlu.edu.cn" style="color:#fff;">Xiaobo.Jin@xjtlu.edu.cn</a>
+      </p>
+      <div class="buttons is-centered" style="margin-top:2rem;">
+        <a href="https://anonymous.4open.science/r/A5E7202F" class="button is-white is-outlined">
+          <span class="icon"><i class="fab fa-github"></i></span><span>Code (Anonymous)</span>
+        </a>
+        <a href="AGLS-ICME.pdf" class="button is-white is-outlined">
+          <span class="icon"><i class="fas fa-file-pdf"></i></span><span>Paper (ICME submission)</span>
+        </a>
+        <a href="https://openreview.net/forum?id=PpKTeoHBFA" class="button is-white is-outlined">
+          <span class="icon"><i class="fas fa-external-link-alt"></i></span><span>ACL ARR 2025 May Reviews</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <figure class="image">
+          <img src="https://i.imgur.com/0Z3jK8v.png" alt="AGLS Overview">
+          <figcaption class="has-text-centered"><strong>Fig. 1</strong> – Core idea of Adaptive Greedy Local Search</figcaption>
+        </figure>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <h2 class="title is-3 has-text-centered">Abstract</h2>
+    <div class="content">
+      <p>Large Language Models (LLMs) are increasingly equipped with automatic prompt-optimization modules that rewrite the user’s input and explicitly present an “improved” prompt to the user before generating the final response. Although this visibility is designed to enhance trust and user control, the optimizer’s autonomous selection of the single “best” candidate remains fully unconstrained.</p>
+      <p>The attacker can hijack the original prompt or the prompt generated by automatic prompt optimization for alternative rewriting, so as to induce semantic drift to complete the hijack optimization process, which greatly affects the response of LLM.</p>
+      <p>To systematically expose this risk, we propose <strong>Adaptive Greedy Local Search (AGLS)</strong>, a prompt hijacking attack. This attack injects semantic offset by hijacking the auto-prompt optimization results in a black-box scenario. AGLS dynamically adjusts candidate replacements at linguistic checkpoints to keep BERTScore ≈ 0.80 while maximizing goal discrepancy.</p>
+      <p>Extensive experiments on popular and open-source LLMs demonstrate that AGLS achieves higher attack success rates than prior semantic-preserving attacks under strictly comparable similarity budgets. The results highlight the risk of hijacking and tampering with explicit auto-prompting optimizations in user-facing systems.</p>
+      <p><strong>Code is available at:</strong> <a href="https://anonymous.4open.science/r/A5E7202F">https://anonymous.4open.science/r/A5E7202F</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section has-background-light">
+  <div class="container">
+    <h2 class="title is-3 has-text-centered">Key Contributions</h2>
+    <div class="columns is-multiline is-centered">
+      <div class="column is-4">
+        <div class="box has-text-centered">
+          <span class="icon is-large has-text-primary"><i class="fas fa-bullseye fa-3x"></i></span>
+          <h4 class="title is-5" style="margin-top:1rem;">First to reveal the attack surface</h4>
+          <p>introduced by just-in-time auto-prompt optimization modules widely deployed in production LLMs (Bing Copilot, Gemini, Claude.ai, Perplexity Pro, etc.).</p>
+        </div>
+      </div>
+      <div class="column is-4">
+        <div class="box has-text-centered">
+          <span class="icon is-large has-text-success"><i class="fas fa-search fa-3x"></i></span>
+          <h4 class="title is-5" style="margin-top:1rem;">Adaptive Greedy Local Search (AGLS)</h4>
+          <p>Black-box semantic-preserving attack that mimics real optimizer behavior and keeps BERTScore ≈ 0.80 while maximizing intent drift.</p>
+        </div>
+      </div>
+      <div class="column is-4">
+        <div class="box has-text-centered">
+          <span class="icon is-large has-text-info"><i class="fas fa-chart-line fa-3x"></i></span>
+          <h4 class="title is-5" style="margin-top:1rem;">Superior Performance</h4>
+          <p>Outperforms TABS, BeamAttack and other baselines under the same similarity budget on >2400 test cases.</p>
         </div>
       </div>
     </div>
-  </footer>
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9a7302a9efc3fd33',t:'MTc2NDU5NjU3NC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+  </div>
+</section>
 
+<section class="section">
+  <div class="container">
+    <h2 class="title is-3 has-text-centered">Method Overview</h2>
+    <div class="content">
+      <p>AGLS works in three main steps:</p>
+      <ol>
+        <li><strong>Hierarchical decomposition & checkpoint setting</strong> – Split input into sub-clauses and define linguistic checking points (usually punctuation).</li>
+        <li><strong>Masked keyword replacement with Top-k candidates</strong> – At each checking point, mask the current keyword and generate Top-k semantically similar replacements.</li>
+        <li><strong>Adaptive rank adjustment</strong> – Dynamically move up/down in the Top-k list (more similar) or down (more divergent) to keep partial BERTScore ≈ 0.80 while maximizing final goal discrepancy.</li>
+      </ol>
+      <p>This greedy local search with similarity checkpoints successfully hijacks the optimizer’s “best candidate” selection in real systems.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section has-background-light">
+  <div class="container">
+    <h2 class="title is-3 has-text-centered">BibTeX</h2>
+    <pre><code>@article{zhang2025agls,
+  title   = {Semantic-Preserving Hijacking Attacks via Adaptive Greedy Local Search},
+  author  = {Chong Zhang and Xiang Li and Jia Wang and Shan Liang and Haochen Xue and Xiaobo Jin},
+  year    = {2025},
+  note    = {Submitted to ICME 2025 (under review completed at ACL ARR 2025 May )}
+}</code></pre>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="content has-text-centered">
+    <p>© 2025 Chong Zhang, Xiang Li, et al. • Built with Bulma</p>
+  </div>
+</footer>
+
+</body>
 </html>
